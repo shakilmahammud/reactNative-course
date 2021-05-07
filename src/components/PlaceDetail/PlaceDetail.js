@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Modal, Image, Text, Button } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Icon } from 'react-native-vector-icons/Icon';
 
 const PlaceDetail = props => {
     return (
@@ -14,12 +16,17 @@ const PlaceDetail = props => {
                     fontSize: 40
                 }}>{props.place.value}</Text>
                 <View>
-                    <Button title="Delete" color="red"
+                    <TouchableOpacity 
                         onPress={
                             () => {
                                 props.handleDeleteItem(props.place.key);
                             }
-                        } />
+                        } >
+                            
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                        <Icon name="times-circle" size={60}/>
+                        </TouchableOpacity>
                     <Button title="Close" onPress={() => props.handleHideModal()} />
                 </View>
             </View>
